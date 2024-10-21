@@ -36,14 +36,16 @@ App under development. Below are the current milestones:
 
 * [X]  Create the API using Spring Boot Framework
 * [X]  Layer Architecture (using MVC)
-* [ ]  **PLUS:** Create a JavaFX GUI to interact with the server through requests
-* [ ]  Implement the security layer (using Spring Security)
+* [X]  Implement the security layer (using Spring Security)
 * [X]  Use a relational persistance database (using MySQL running on WAMPP server)
 * [ ]  Design for solid error handling
 * [ ]  Unit tests with JUnit 5
 * [ ]  API Documentation with Swagger
 * [ ]  App monitoring with Actuator
 * [X]  Published on GitHub
+
+**PLUS Feature:**
+* [ ]  Create a JavaFX GUI to interact with the server through requests
 
 ## Installing
 
