@@ -17,7 +17,7 @@ import jakarta.persistence.UniqueConstraint;
 public class Author {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	@Column(nullable = false)
