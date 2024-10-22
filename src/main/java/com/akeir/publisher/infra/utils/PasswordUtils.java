@@ -1,10 +1,10 @@
-package com.akeir.publisher.security.service;
+package com.akeir.publisher.infra.utils;
 
 import org.springframework.security.crypto.bcrypt.BCrypt;
 
-public class PasswordService {
+public class PasswordUtils {
 	
-	private PasswordService() { }
+	private PasswordUtils() { }
 	
   	// Defining the BCrypt workload to use when generating password hashes. Valid values: 10-31.
 	private static int workload = 12;
@@ -43,38 +43,5 @@ public class PasswordService {
 		password_verified = BCrypt.checkpw(password_plaintext, stored_hash);
 
 		return password_verified;
-	}
-
-	/**
-	  * DEBUG
-	  * A simple test case method, verify that a pre-generated test hash verifies successfully
-	  * for the password it represents, and also generate a new hash and ensure that the new hash verifies
-	  * just the same.
-	  */
-	public static void testHash(String test_passwd, String test_hash) {
-		
-		if(test_passwd == null || test_hash == null)
-		{
-			System.err.println("Password.testHash :: One parameter is null. Assigning default parameters");
-			
-			test_passwd = "abcdefghijklmnopqrstuvwxyz";
-			test_hash = "$2a$06$.rCVZVOThsIa97pEDOxvGuRRgzG64bvtJ0938xuqzv18d3ZpQhstC";
-		}
-
-		System.out.println("Testing BCrypt Password hashing and verification");
-		System.out.println("Test password: " + test_passwd);
-		System.out.println("Test stored hash: " + test_hash);
-		System.out.println("Hashing test password...");
-
-		String computed_hash = hashPassword(test_passwd);
-		System.out.println("Test computed hash: " + computed_hash);
-		System.out.println("\nVerifying that hash and stored hash both match for the test password...\n");
-
-		String compare_test = checkPassword(test_passwd, test_hash)	? "Passwords Match" : "Passwords do not match";
-		String compare_computed = checkPassword(test_passwd, computed_hash)	? "Passwords Match" : "Passwords do not match";
-
-		System.out.println("Verify against stored hash:   " + compare_test);
-		System.out.println("Verify against computed hash: " + compare_computed);
-
 	}
 }

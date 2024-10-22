@@ -2,6 +2,8 @@ package com.akeir.publisher.model;
 
 import java.util.List;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.media.Schema.AccessMode;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -18,6 +20,7 @@ public class Author {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Schema(accessMode = AccessMode.READ_ONLY)
 	private Integer id;
 	
 	@Column(nullable = false)
@@ -43,8 +46,9 @@ public class Author {
 		this.name = name;
 	}
 	
-	public List<Book> getBooks()
+	@Override
+	public String toString()
 	{
-		return books;
+		return this.getId() + " - " + this.getName();
 	}
 }

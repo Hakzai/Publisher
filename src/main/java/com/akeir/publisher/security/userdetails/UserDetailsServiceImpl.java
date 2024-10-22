@@ -1,4 +1,4 @@
-package com.akeir.publisher.security.cust.userdetails;
+package com.akeir.publisher.security.userdetails;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,5 +21,4 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 				.map(UserDetailsImpl::new)
 				.orElseThrow(() -> new UsernameNotFoundException("USERNAME WAS NOT FOUND OR PASSWORD IS WRONG"));
 	}
-
 }

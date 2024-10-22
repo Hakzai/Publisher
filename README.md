@@ -39,9 +39,9 @@ App under development. Below are the current milestones:
 * [ ]  **PLUS:** Create a JavaFX GUI to interact with the server through requests
 * [ ]  Implement the security layer (using Spring Security)
 * [X]  Use a relational persistance database (using MySQL running on WAMPP server)
-* [ ]  Design for solid error handling
+* [X]  Design for error handling
 * [ ]  Unit tests with JUnit 5
-* [ ]  API Documentation with Swagger
+* [X]  API Documentation with Swagger
 * [ ]  App monitoring with Actuator
 * [X]  Published on GitHub
 
