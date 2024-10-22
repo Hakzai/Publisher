@@ -1,5 +1,7 @@
 package com.akeir.publisher.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.media.Schema.AccessMode;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,6 +18,7 @@ public class Book {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "book_id")
+	@Schema(accessMode = AccessMode.READ_ONLY)
 	private Integer id;
 	
 	@Column(nullable = false)
@@ -84,9 +87,9 @@ public class Book {
 		this.pageQuantity = pageQuantity;
 	}
 	
-	public String getAuthor()
+	public Author getAuthor()
 	{
-		return author.getName();
+		return author;
 	}
 	
 	public void setAuthor(Author author)
@@ -97,5 +100,11 @@ public class Book {
 	public int retrieveAuthorId()
 	{
 		return author.getId();
+	}
+	
+	@Override
+	public String toString()
+	{
+		return this.getTitle();
 	}
 }

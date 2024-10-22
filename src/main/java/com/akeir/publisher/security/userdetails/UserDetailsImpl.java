@@ -1,4 +1,4 @@
-package com.akeir.publisher.security.cust.userdetails;
+package com.akeir.publisher.security.userdetails;
 
 import java.util.Collection;
 import java.util.List;
@@ -10,6 +10,7 @@ import com.akeir.publisher.security.model.User;
 
 public class UserDetailsImpl implements UserDetails {
 
+	private static final long serialVersionUID = 1L;
 	private User user;
 	
 	public UserDetailsImpl(User user)
@@ -20,7 +21,7 @@ public class UserDetailsImpl implements UserDetails {
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() 
 	{
-		return List.of(() -> "read");
+		return List.of(() -> user.getRoles());
 	}
 
 	@Override

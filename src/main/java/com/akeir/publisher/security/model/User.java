@@ -1,5 +1,7 @@
 package com.akeir.publisher.security.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.media.Schema.AccessMode;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,6 +16,7 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Schema(accessMode = AccessMode.READ_ONLY)
 	private Integer id;
 	
 	@Column(nullable = false)
@@ -62,6 +65,6 @@ public class User {
 	
 	public void setRoles(String roles)
 	{
-		this.roles = roles;
+		this.roles = roles.toUpperCase();
 	}
 }

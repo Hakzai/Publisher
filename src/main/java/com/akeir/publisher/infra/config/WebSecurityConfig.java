@@ -1,4 +1,4 @@
-package com.akeir.publisher.security.config;
+package com.akeir.publisher.infra.config;
 
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
@@ -63,6 +63,9 @@ public class WebSecurityConfig{
     {
     	http.authorizeHttpRequests(auth -> auth
     			.requestMatchers("/auth/**").permitAll()
+    			.requestMatchers("/*/create").hasAnyAuthority("SCOPE_SYSADMIN")
+    			.requestMatchers("/*/edit").hasAnyAuthority("SCOPE_SYSADMIN")
+    			.requestMatchers("/*/delete").hasAnyAuthority("SCOPE_SYSADMIN")
     			.anyRequest().authenticated())
     			.httpBasic(Customizer.withDefaults());
     }
